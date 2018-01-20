@@ -24,20 +24,6 @@ class ReactApp extends React.Component{
   popPage() {
     this.navigator.popPage();
 }
-  renderToolbar(route, navigator) {
-    // const backButton =  <Ons.BackButton onClick={this.popPage.bind(this)}>Back</Ons.BackButton>
-    
-    return (
-      <Ons.Toolbar>
-        <div className='right'>
-          <Ons.ToolbarButton onClick={this.showMenu.bind(this)}>
-            <Ons.Icon icon='ion-navicon, material:md-menu' />
-          </Ons.ToolbarButton>
-        </div>
-        {/* <div className='left'>{backButton}</div> */}
-      </Ons.Toolbar>
-    );
-  }
 showMenu() {
     this.props.showMenu();
   }

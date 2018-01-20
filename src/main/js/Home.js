@@ -5,12 +5,17 @@ var Ons = require('react-onsenui');
 var client = require('./client');
 import Page2 from './Page2'
 export default class Home extends React.Component{
+  constructor(){
+    super();
+    this.state={
+      value:"Team00"
+    }
+  }
 pushPage() {
-    this.props.navigator.pushPage({ component: Page2, props: { key: 'Page2' } });
+    let title="Helle World"
+    this.props.navigator.pushPage({ component: Page2, props: { key: 'Page2' ,title:this.state.value} });
   }
   renderToolbar(route, navigator){
-    // const backButton =  <Ons.BackButton onClick={this.popPage.bind(this)}>Back</Ons.BackButton>
-    
     return (
       <Ons.Toolbar>
         <div className='right'>
@@ -19,7 +24,6 @@ pushPage() {
           </Ons.ToolbarButton>
         </div>
         <div className='center'>Home</div>
-        {/* <div className='left'>{backButton}</div> */}
       </Ons.Toolbar>
     );
   }

@@ -9,8 +9,8 @@ popPage() {
         this.props.navigator.popPage();
 }
 renderToolbar(route, navigator){
+        //back button
         const backButton =  <Ons.BackButton onClick={this.popPage.bind(this)}>Back</Ons.BackButton>
-        
         return (
           <Ons.Toolbar>
             <div className='right'>
@@ -24,10 +24,13 @@ renderToolbar(route, navigator){
         );
       }
     render() {
+      console.log(this.props)
       return (
+        
         <Ons.Page renderToolbar={this.renderToolbar.bind(this)} >
           <div style={{ textAlign: 'center' }}>
-            <h1>Page 2</h1>
+            <h1>Page 2: {this.props.title}</h1>
+            
           </div>
         </Ons.Page>
       );
