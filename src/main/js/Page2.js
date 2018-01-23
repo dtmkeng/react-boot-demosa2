@@ -5,8 +5,23 @@ var Ons = require('react-onsenui');
 var client = require('./client');
 
 export default class Page2 extends React.Component{
+  // setup  value
+constructor(){
+  super();
+  this.state={
+    name:"No name",
+    detail:"PO-001",
+    status:"on sell"
+  }
+
+}
 popPage() {
         this.props.navigator.popPage();
+}
+//default function woking  on renderpage
+componentDidMount(){
+  //wording on render page
+  this.setState({name:"hello kitty"});
 }
 renderToolbar(route, navigator){
         //back button
@@ -26,11 +41,12 @@ renderToolbar(route, navigator){
     render() {
       console.log(this.props)
       return (
-        
         <Ons.Page renderToolbar={this.renderToolbar.bind(this)} >
           <div style={{ textAlign: 'center' }}>
             <h1>Page 2: {this.props.title}</h1>
-            
+            noon: {this.state.name}
+            detail:{this.state.detail}
+            status: {this.state.status}
           </div>
         </Ons.Page>
       );
