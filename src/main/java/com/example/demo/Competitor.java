@@ -20,4 +20,10 @@ public class Competitor {
 		this.name = name;
 		this.school = school;
 	}
+	public String getName(){
+		 return this.name;
+	}
+	public String getSchool(){
+		 return this.school;
+	}
 }

@@ -25,4 +25,7 @@ public class Votes {
 		this.voteCompetitor = voteCompetitor;
 		this.point = point;
 	}
+	public int getName(){
+        return this.point;
+	}
 }

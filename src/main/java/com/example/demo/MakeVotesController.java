@@ -12,20 +12,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-
 @Controller
 public class MakeVotesController {
-
+    
     @Autowired
     VotesRepository votesRepository;
     @Autowired
     CompetitorRepository competitorRepository;
-    @ResponseBody
-    @RequestMapping(path = "/vote/{id}/point/{point}", method = RequestMethod.GET)
-    public String votes(@PathVariable Long id,@PathVariable int point) {
-        Competitor competitor = this.competitorRepository.findOne(id);
-        Votes vote = new Votes(competitor,point);
-        this.votesRepository.save(vote);
-        return "{\"status\":\"Voted\"}";
+     
+    @RequestMapping(path = "/vote", method = RequestMethod.GET)
+    public @ResponseBody Competitor votes() {
+        Competitor  omp = new Competitor("keng","Jo");
+        Competitor  om = this.competitorRepository.findByName("keng");
+        // Competitor competitor = this.competitorRepository.findOne(id);
+        // Votes vote = new Votes(competitor,point);
+        // this.votesRepository.save(vote);
+        return om;
     }
 }

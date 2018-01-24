@@ -22,6 +22,15 @@ popPage() {
 componentDidMount(){
   //wording on render page
   this.setState({name:"hello kitty"});
+  client({method: 'GET', path: '/vote'}).done(response => {
+    // this.setState({employees: response.entity._embedded.employees});
+    console.log(response)
+  });
+}
+handleSubmit(){
+  client({method: 'GET', path: '/vote/'+id+'/point/'+point}).done(
+    ons.notification.alert('Voted!')
+    )
 }
 renderToolbar(route, navigator){
         //back button
@@ -39,7 +48,7 @@ renderToolbar(route, navigator){
         );
       }
     render() {
-      console.log(this.props)
+      //console.log(this.props)
       return (
         <Ons.Page renderToolbar={this.renderToolbar.bind(this)} >
           <div style={{ textAlign: 'center' }}>
